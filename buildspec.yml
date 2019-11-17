@@ -1,6 +1,9 @@
 version: 0.2
 java: openjdk8
 phases:
+  install:
+    runtime-versions:
+      java: openjdk8
   pre_build:
     commands:
       - echo "Started the pre-build phase of the pipeline."
