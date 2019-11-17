@@ -1,0 +1,17 @@
+version: 0.2
+java: openjdk8
+phases:
+  pre_build:
+    commands:
+      - echo "Started the pre-build phase of the pipeline."
+  build:
+    commands:
+      - echo "Started the build phase"
+      - mvn clean prepare-package war:exploded
+  post_build:
+    commands:
+      - echo "Started the post-build phase of the pipeline."
+      - mv target/deploy ./
+artifacts:
+  files:
+    - deploy/**/*
